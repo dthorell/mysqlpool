@@ -9,7 +9,7 @@
 import mysql.connector.pooling
 from flask import current_app, _app_ctx_stack
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 
 class MySQLPool(object):
@@ -25,15 +25,15 @@ class MySQLPool(object):
         app.config.setdefault('MYSQL_USER', 'root')
         app.config.setdefault('MYSQL_PASS', '')
         app.config.setdefault('MYSQL_DB', 'tmp')
-        app.config.setdefault('POOL_NAME', 'mysql_pool')
-        app.config.setdefault('POOL_SIZE', 5)
-        app.config.setdefault('AUTOCOMMIT', True)
+        app.config.setdefault('MYSQL_POOL_NAME', 'mysql_pool')
+        app.config.setdefault('MYSQL_POOL_SIZE', 5)
+        app.config.setdefault('MYSQL_AUTOCOMMIT', True)
 
     def connect(self):
         connection = {
-            'pool_name': current_app.config['POOL_NAME'],
-            'pool_size': current_app.config['POOL_SIZE'],
-            'autocommit': current_app.config['AUTOCOMMIT'],
+            'pool_name': current_app.config['MYSQL_POOL_NAME'],
+            'pool_size': current_app.config['MYSQL_POOL_SIZE'],
+            'autocommit': current_app.config['MYSQL_AUTOCOMMIT'],
             'host': current_app.config['MYSQL_HOST'],
             'port': current_app.config['MYSQL_PORT'],
             'user': current_app.config['MYSQL_USER'],

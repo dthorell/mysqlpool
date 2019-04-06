@@ -1,11 +1,29 @@
+import re
+import os
 import setuptools
+here = os.path.abspath(os.path.dirname(__file__))
+
+
+def read(*parts):
+    with open(os.path.join(here, *parts), 'r') as fp:
+        return fp.read()
+
+
+def find_version(*file_paths):
+    version_file = read(*file_paths)
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                              version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="flask_mysqlpool",
-    version="1.0.2",
+    version=find_version("flask_mysqlpool", "__init__.py"),
     author="Daniel Thorell",
     author_email="dthorell@outlook.com",
     description="Wrapper for mysql.connector.python to get a pool of mysql connections",
