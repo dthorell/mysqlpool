@@ -9,7 +9,7 @@
 import mysql.connector.pooling
 from flask import current_app, _app_ctx_stack
 
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 
 class MySQLPool(object):

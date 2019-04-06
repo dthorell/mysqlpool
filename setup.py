@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="flask_mysqlpool",
-    version="1.0.1",
+    version="1.0.2",
     author="Daniel Thorell",
     author_email="dthorell@outlook.com",
     description="Wrapper for mysql.connector.python to get a pool of mysql connections",
