@@ -30,5 +30,4 @@ def index():
     except mysql.connector.errors.PoolError as err:
         print(err)
         abort(500)
-    to_json = [dict(row) for row in result]
-    return jsonify(to_json)
+    return jsonify(result)

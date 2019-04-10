@@ -4,3 +4,4 @@ dist
 *.egg
 flask_mysqlpool.egg-info
 *.pyc
+.idea
