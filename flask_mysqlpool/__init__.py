@@ -9,7 +9,7 @@
 import mysql.connector.pooling
 from flask import current_app, _app_ctx_stack
 
-__version__ = '1.0.3'
+__version__ = '1.0.4'
 
 
 class MySQLPool(object):
@@ -49,3 +49,11 @@ class MySQLPool(object):
         if not hasattr(ctx, 'mysqlpool'):
             ctx.mysqlpool = self.connect()
         return ctx.mysqlpool
+
+    def executeSQL(self, sql, **kwargs):
+        conn = self.connection.get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(sql, kwargs)
+        result = cursor.fetchall()
+        conn.close()
+        return result
