@@ -31,5 +31,4 @@ This package allows you to use mysql-connector-pythons pooling feature from flas
         except mysql.connector.ProgrammingError as err:
             print(err)
             abort(500)
-        to_json = [dict(row) for row in result]
         return jsonify(to_json)

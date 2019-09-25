@@ -8,8 +8,8 @@ twine = "*"
 
 [packages]
 flask = "*"
-flask-mysqlpool = "*"
 jinja2 = "*"
+mysql-connector-python = "*"
 
 [requires]
 python_version = "3.7"
