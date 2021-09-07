@@ -24,10 +24,10 @@ def index():
         cursor.execute("select * from world_x.city limit 10")
         result = cursor.fetchall()
         conn.close()
+        return jsonify(result)
     except mysql.connector.ProgrammingError as err:
         print(err)
         abort(500)
     except mysql.connector.errors.PoolError as err:
         print(err)
         abort(500)
-    return jsonify(result)

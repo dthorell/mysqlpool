@@ -28,7 +28,8 @@ This package allows you to use mysql-connector-pythons pooling feature from flas
             cursor.execute("select * from world_x.city limit 10", )
             result = cursor.fetchall()
             conn.close()  # return connection to pool
+            return jsonify(result)
         except mysql.connector.ProgrammingError as err:
             print(err)
             abort(500)
-        return jsonify(to_json)
+
